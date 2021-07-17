@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../actions";
 import AuthorHeader from "./AuthorHeader";
+import { Link } from "react-router-dom";
 
 const PostsList = ({ fetchPosts, posts }) => {
     useEffect(() => {
@@ -11,11 +12,11 @@ const PostsList = ({ fetchPosts, posts }) => {
     const renderPosts = () => {
         return posts.map(post => {
             return (
-                <div key={post.id}>
+                <Link to={`/post/${post.id}`} key={post.id}>
                     <h2>{post.title}</h2>
                     <p>{post.body}</p>
                     <AuthorHeader userId={post.userId} />
-                </div>
+                </Link>
             );
         });
     };
