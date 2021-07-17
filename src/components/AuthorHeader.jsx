@@ -15,7 +15,6 @@ const AuthorHeader = ({ userId, fetchUser, user }) => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state.users);
     return { user: state.users.find(user => user.id === ownProps.userId) };
 };
 
