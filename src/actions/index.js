@@ -1,6 +1,6 @@
 import _ from "lodash";
 import jsonPlaceholder from "../apis/jsonPlaceholder";
-import { FETCH_POSTS, FETCH_POST, FETCH_USER } from "./types";
+import { FETCH_POSTS, FETCH_POST, FETCH_USER, FETCH_COMMENTS } from "./types";
 
 export const fetchPosts = () => async dispatch => {
     const response = await jsonPlaceholder.get("/posts");
@@ -10,6 +10,7 @@ export const fetchPosts = () => async dispatch => {
 
 export const fetchPost = id => async dispatch => {
     const response = await jsonPlaceholder.get(`/posts/${id}`);
+
     dispatch({ type: FETCH_POST, payload: response.data });
 };
 
@@ -22,3 +23,9 @@ const _fetchUser = _.memoize(async (id, dispatch) => {
 
     dispatch({ type: FETCH_USER, payload: response.data });
 });
+
+export const fetchComments = postId => async dispatch => {
+    const response = await jsonPlaceholder.get(`/posts/${postId}/comments`);
+
+    dispatch({ type: FETCH_COMMENTS, payload: response.data });
+};

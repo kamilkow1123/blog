@@ -14,7 +14,7 @@ const PostsList = ({ fetchPosts, posts }) => {
             return (
                 <Link to={`/post/${post.id}`} key={post.id}>
                     <h2>{post.title}</h2>
-                    <p>{post.body}</p>
+                    {/* <p>{post.body}</p> */}
                     <AuthorHeader userId={post.userId} />
                 </Link>
             );
