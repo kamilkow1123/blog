@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../actions";
+import AuthorHeader from "./AuthorHeader";
 
 const PostsList = ({ fetchPosts, posts }) => {
     useEffect(() => {
@@ -13,6 +14,7 @@ const PostsList = ({ fetchPosts, posts }) => {
                 <div key={post.id}>
                     <h2>{post.title}</h2>
                     <p>{post.body}</p>
+                    <AuthorHeader userId={post.userId} />
                 </div>
             );
         });
