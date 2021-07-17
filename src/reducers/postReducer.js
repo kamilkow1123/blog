@@ -1,8 +1,8 @@
-import { FETCH_POSTS } from "../actions/types";
+import { FETCH_POST } from "../actions/types";
 
-export default (state = [], action) => {
+export default (state = null, action) => {
     switch (action.type) {
-        case FETCH_POSTS:
+        case FETCH_POST:
             return action.payload;
         default:
             return state;
