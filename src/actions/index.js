@@ -7,6 +7,8 @@ import {
     FETCH_COMMENTS,
     ADD_POST_TO_FAV,
     ADD_COMMENT_TO_FAV,
+    REMOVE_POST_FROM_FAV,
+    REMOVE_COMMENT_FROM_FAV,
 } from "./types";
 
 export const fetchPosts = () => async dispatch => {
@@ -37,10 +39,22 @@ export const fetchComments = postId => async dispatch => {
     dispatch({ type: FETCH_COMMENTS, payload: response.data });
 };
 
-export const addPostToFav = postId => dispatch => {
-    dispatch({ type: ADD_POST_TO_FAV, payload: postId });
+export const addPostToFav = postId => async dispatch => {
+    const response = await jsonPlaceholder.get(`/posts/${postId}`);
+
+    dispatch({ type: ADD_POST_TO_FAV, payload: response.data });
 };
 
-export const addCommentToFav = commentId => dispatch => {
-    dispatch({ type: ADD_COMMENT_TO_FAV, payload: commentId });
+export const addCommentToFav = commentId => async dispatch => {
+    const response = await jsonPlaceholder.get(`/comments/${commentId}`);
+
+    dispatch({ type: ADD_COMMENT_TO_FAV, payload: response.data });
+};
+
+export const removePostFromFav = postId => dispatch => {
+    dispatch({ type: REMOVE_POST_FROM_FAV, payload: postId });
+};
+
+export const removeCommentFromFav = commentId => dispatch => {
+    dispatch({ type: REMOVE_COMMENT_FROM_FAV, payload: commentId });
 };

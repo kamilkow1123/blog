@@ -1,4 +1,9 @@
-import { FETCH_POSTS, FETCH_POST, ADD_POST_TO_FAV } from "../actions/types";
+import {
+    FETCH_POSTS,
+    FETCH_POST,
+    ADD_POST_TO_FAV,
+    REMOVE_POST_FROM_FAV,
+} from "../actions/types";
 
 const INITIAL_STATE = {
     listOfPosts    : [],
@@ -22,6 +27,21 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 favouritePosts : [ ...state.favouritePosts, action.payload ],
+            };
+        case REMOVE_POST_FROM_FAV:
+            localStorage.setItem(
+                "favouritePosts",
+                JSON.stringify(
+                    state.favouritePosts.filter(
+                        post => post.id !== action.payload
+                    )
+                )
+            );
+            return {
+                ...state,
+                favouritePosts : state.favouritePosts.filter(
+                    post => post.id !== action.payload
+                ),
             };
         default:
             return state;
