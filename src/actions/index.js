@@ -5,7 +5,8 @@ import {
     FETCH_POST,
     FETCH_USER,
     FETCH_COMMENTS,
-    ADD_TO_FAV,
+    ADD_POST_TO_FAV,
+    ADD_COMMENT_TO_FAV,
 } from "./types";
 
 export const fetchPosts = () => async dispatch => {
@@ -36,6 +37,10 @@ export const fetchComments = postId => async dispatch => {
     dispatch({ type: FETCH_COMMENTS, payload: response.data });
 };
 
-export const addToFav = postId => dispatch => {
-    dispatch({ type: ADD_TO_FAV, payload: postId });
+export const addPostToFav = postId => dispatch => {
+    dispatch({ type: ADD_POST_TO_FAV, payload: postId });
+};
+
+export const addCommentToFav = commentId => dispatch => {
+    dispatch({ type: ADD_COMMENT_TO_FAV, payload: commentId });
 };

@@ -1,4 +1,4 @@
-import { FETCH_POSTS, FETCH_POST, ADD_TO_FAV } from "../actions/types";
+import { FETCH_POSTS, FETCH_POST, ADD_POST_TO_FAV } from "../actions/types";
 
 const INITIAL_STATE = {
     listOfPosts    : [],
@@ -12,7 +12,7 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, listOfPosts: action.payload };
         case FETCH_POST:
             return { ...state, currentPost: action.payload };
-        case ADD_TO_FAV:
+        case ADD_POST_TO_FAV:
             return {
                 ...state,
                 favouritePosts : [ ...state.favouritePosts, action.payload ],
