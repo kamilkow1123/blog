@@ -26,7 +26,11 @@ const PostsList = ({ fetchPosts, posts }) => {
         });
     };
 
-    return <div className={styles.postlist}>{renderPosts()}</div>;
+    return (
+        <div className={styles.postlist}>
+            <div className={styles.wrapper}>{renderPosts()}</div>;
+        </div>
+    );
 };
 
 const mapStateToProps = state => {

@@ -77,27 +77,42 @@ const Post = ({
     return !post ? (
         <div>Loading...</div>
     ) : (
-        <div className={styles.container}>
-            <div className={styles.wrapper}>
-                <Navbar />
-                <h1>{post.title}</h1>
-                <AuthorHeader userId={post.userId} />
-                <button type="button" onClick={togglePostFav}>
-                    {favPostsIds.includes(parseInt(id)) ? (
-                        "Remove from favourites"
-                    ) : (
-                        "Add to favourite"
+        <div>
+            <Navbar />
+            <div className={styles.container}>
+                <div className={styles.post}>
+                    <h1 className={styles.post__title}>{post.title}</h1>
+                    <AuthorHeader userId={post.userId} />
+                    <button type="button" onClick={togglePostFav}>
+                        {favPostsIds.includes(parseInt(id)) ? (
+                            "Remove from favourites"
+                        ) : (
+                            "Add to favourite"
+                        )}
+                    </button>
+                    <p>
+                        {post.body}
+                        {post.body}
+                        {post.body}
+                        {post.body}
+                        {post.body}
+                        {post.body}
+                        {post.body}
+                        {post.body}
+                        {post.body}
+                        {post.body}
+                    </p>
+                    {parseInt(id) > 1 && (
+                        <Link to={`/post/${parseInt(id) - 1}`}>
+                            Previous Post
+                        </Link>
                     )}
-                </button>
-                <p>{post.body}</p>
-                {parseInt(id) > 1 && (
-                    <Link to={`/post/${parseInt(id) - 1}`}>Previous Post</Link>
-                )}
-                {parseInt(id) < 100 && (
-                    <Link to={`/post/${parseInt(id) + 1}`}>Next Post</Link>
-                )}
-                <h2>Comments</h2>
-                {renderComments()}
+                    {parseInt(id) < 100 && (
+                        <Link to={`/post/${parseInt(id) + 1}`}>Next Post</Link>
+                    )}
+                    <h2>Comments</h2>
+                    {renderComments()}
+                </div>
             </div>
         </div>
     );

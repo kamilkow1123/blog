@@ -27,7 +27,19 @@ module.exports = {
             },
             {
                 test : /\.css$/i,
-                use  : [ "style-loader", "css-loader" ],
+                use  : [
+                    require.resolve("style-loader"),
+                    {
+                        loader  : require.resolve("css-loader"),
+                        options : {
+                            modules : {
+                                mode           : "local",
+                                localIdentName :
+                                    "[name]__[local]__[hash:base64:5]",
+                            },
+                        },
+                    },
+                ],
             },
         ],
     },

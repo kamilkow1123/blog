@@ -1,12 +1,19 @@
 .nav {
     height: 80px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    background: white;
+}
+
+.nav__wrapper {
+    width: 100%;
     max-width: 1200px;
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    margin: 0 auto;
 }
 
 .nav__link {

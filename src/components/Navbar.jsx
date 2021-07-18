@@ -5,12 +5,14 @@ import styles from "../style/navbar.module.css";
 const Navbar = () => {
     return (
         <div className={styles.nav}>
-            <Link className={styles.nav__link} to="/">
-                Home
-            </Link>
-            <Link className={styles.nav__link} to="/favourites">
-                Favourites
-            </Link>
+            <div className={styles.nav__wrapper}>
+                <Link className={styles.nav__link} to="/">
+                    Home
+                </Link>
+                <Link className={styles.nav__link} to="/favourites">
+                    Favourites
+                </Link>
+            </div>
         </div>
     );
 };
