@@ -11,6 +11,7 @@ import {
 } from "../actions";
 import AuthorHeader from "./AuthorHeader";
 import Navbar from "./Navbar";
+import styles from "../style/post.module.css";
 
 const Post = ({
     fetchPost,
@@ -76,26 +77,28 @@ const Post = ({
     return !post ? (
         <div>Loading...</div>
     ) : (
-        <div>
-            <Navbar />
-            <h1>{post.title}</h1>
-            <AuthorHeader userId={post.userId} />
-            <button type="button" onClick={togglePostFav}>
-                {favPostsIds.includes(parseInt(id)) ? (
-                    "Remove from favourites"
-                ) : (
-                    "Add to favourite"
+        <div className={styles.container}>
+            <div className={styles.wrapper}>
+                <Navbar />
+                <h1>{post.title}</h1>
+                <AuthorHeader userId={post.userId} />
+                <button type="button" onClick={togglePostFav}>
+                    {favPostsIds.includes(parseInt(id)) ? (
+                        "Remove from favourites"
+                    ) : (
+                        "Add to favourite"
+                    )}
+                </button>
+                <p>{post.body}</p>
+                {parseInt(id) > 1 && (
+                    <Link to={`/post/${parseInt(id) - 1}`}>Previous Post</Link>
                 )}
-            </button>
-            <p>{post.body}</p>
-            {parseInt(id) > 1 && (
-                <Link to={`/post/${parseInt(id) - 1}`}>Previous Post</Link>
-            )}
-            {parseInt(id) < 100 && (
-                <Link to={`/post/${parseInt(id) + 1}`}>Next Post</Link>
-            )}
-            <h2>Comments</h2>
-            {renderComments()}
+                {parseInt(id) < 100 && (
+                    <Link to={`/post/${parseInt(id) + 1}`}>Next Post</Link>
+                )}
+                <h2>Comments</h2>
+                {renderComments()}
+            </div>
         </div>
     );
 };

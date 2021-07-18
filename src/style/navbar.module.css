@@ -1,0 +1,16 @@
+.nav {
+    height: 80px;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.nav__link {
+    padding: 10px 20px;
+    color: #000;
+    text-decoration: none;
+}

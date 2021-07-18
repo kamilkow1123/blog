@@ -1,12 +1,15 @@
 import React from "react";
 import PostsList from "./PostsList";
 import Navbar from "./Navbar";
+import styles from "../style/home.module.css";
 
 const Home = () => {
     return (
-        <div>
-            <Navbar />
-            <PostsList />
+        <div className={styles.container}>
+            <div className={styles.wrapper}>
+                <Navbar />
+                <PostsList />
+            </div>
         </div>
     );
 };
