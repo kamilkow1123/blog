@@ -1,6 +1,12 @@
 import _ from "lodash";
 import jsonPlaceholder from "../apis/jsonPlaceholder";
-import { FETCH_POSTS, FETCH_POST, FETCH_USER, FETCH_COMMENTS } from "./types";
+import {
+    FETCH_POSTS,
+    FETCH_POST,
+    FETCH_USER,
+    FETCH_COMMENTS,
+    ADD_TO_FAV,
+} from "./types";
 
 export const fetchPosts = () => async dispatch => {
     const response = await jsonPlaceholder.get("/posts");
@@ -28,4 +34,8 @@ export const fetchComments = postId => async dispatch => {
     const response = await jsonPlaceholder.get(`/posts/${postId}/comments`);
 
     dispatch({ type: FETCH_COMMENTS, payload: response.data });
+};
+
+export const addToFav = postId => dispatch => {
+    dispatch({ type: ADD_TO_FAV, payload: postId });
 };

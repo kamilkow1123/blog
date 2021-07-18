@@ -25,7 +25,7 @@ const PostsList = ({ fetchPosts, posts }) => {
 };
 
 const mapStateToProps = state => {
-    return { posts: state.posts };
+    return { posts: state.posts.listOfPosts };
 };
 
 export default connect(mapStateToProps, { fetchPosts })(PostsList);
