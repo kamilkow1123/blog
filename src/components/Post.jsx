@@ -8,6 +8,7 @@ import {
     addCommentToFav,
 } from "../actions";
 import AuthorHeader from "./AuthorHeader";
+import Navbar from "./Navbar";
 
 const Post = ({
     fetchPost,
@@ -57,6 +58,7 @@ const Post = ({
         <div>Loading...</div>
     ) : (
         <div>
+            <Navbar />
             <h1>{post.title}</h1>
             <AuthorHeader userId={post.userId} />
             <button type="button" onClick={togglePostFav}>

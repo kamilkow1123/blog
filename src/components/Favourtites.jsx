@@ -1,14 +1,13 @@
 import React from "react";
-import PostsList from "./PostsList";
 import Navbar from "./Navbar";
 
-const Home = () => {
+const Favourtites = () => {
     return (
         <div>
             <Navbar />
-            <PostsList />
+            <h1>Favourites</h1>
         </div>
     );
 };
 
-export default Home;
+export default Favourtites;
