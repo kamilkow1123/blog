@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import {
     fetchComments,
     fetchPost,
     addPostToFav,
     addCommentToFav,
+    removePostFromFav,
+    removeCommentFromFav,
 } from "../actions";
 import AuthorHeader from "./AuthorHeader";
 import Navbar from "./Navbar";
@@ -17,6 +19,10 @@ const Post = ({
     comments,
     addPostToFav,
     addCommentToFav,
+    favPostsIds,
+    favCommentsIds,
+    removePostFromFav,
+    removeCommentFromFav,
 }) => {
     const { id } = useParams();
 
@@ -38,7 +44,11 @@ const Post = ({
                         type="button"
                         onClick={() => toggleCommentFav(comment.id)}
                     >
-                        Add to favourite
+                        {favCommentsIds.includes(comment.id) ? (
+                            "Remove from favourites"
+                        ) : (
+                            "Add to favourites"
+                        )}
                     </button>
                     <p>{comment.body}</p>
                 </div>
@@ -47,11 +57,20 @@ const Post = ({
     };
 
     const togglePostFav = () => {
-        addPostToFav(parseInt(id));
+        const postId = parseInt(id);
+        if (favPostsIds.includes(postId)) {
+            removePostFromFav(postId);
+        } else {
+            addPostToFav(postId);
+        }
     };
 
     const toggleCommentFav = commentId => {
-        addCommentToFav(commentId);
+        if (favCommentsIds.includes(commentId)) {
+            removeCommentFromFav(commentId);
+        } else {
+            addCommentToFav(commentId);
+        }
     };
 
     return !post ? (
@@ -62,9 +81,19 @@ const Post = ({
             <h1>{post.title}</h1>
             <AuthorHeader userId={post.userId} />
             <button type="button" onClick={togglePostFav}>
-                Add to favourite
+                {favPostsIds.includes(parseInt(id)) ? (
+                    "Remove from favourites"
+                ) : (
+                    "Add to favourite"
+                )}
             </button>
             <p>{post.body}</p>
+            {parseInt(id) > 1 && (
+                <Link to={`/post/${parseInt(id) - 1}`}>Previous Post</Link>
+            )}
+            {parseInt(id) < 100 && (
+                <Link to={`/post/${parseInt(id) + 1}`}>Next Post</Link>
+            )}
             <h2>Comments</h2>
             {renderComments()}
         </div>
@@ -73,8 +102,10 @@ const Post = ({
 
 const mapStateToProps = state => {
     return {
-        post     : state.posts.currentPost,
-        comments : state.comments.currentComments,
+        post           : state.posts.currentPost,
+        comments       : state.comments.currentComments,
+        favPostsIds    : state.posts.favouritePostsIds,
+        favCommentsIds : state.comments.favouriteCommentsIds,
     };
 };
 
@@ -83,4 +114,6 @@ export default connect(mapStateToProps, {
     fetchComments,
     addPostToFav,
     addCommentToFav,
+    removePostFromFav,
+    removeCommentFromFav,
 })(Post);

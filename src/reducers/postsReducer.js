@@ -39,7 +39,6 @@ export default (state = INITIAL_STATE, action) => {
                 ],
             };
         case REMOVE_POST_FROM_FAV:
-            console.log(action.payload);
             localStorage.setItem(
                 "favouritePostsIds",
                 JSON.stringify(
