@@ -9,6 +9,8 @@ import {
     ADD_COMMENT_TO_FAV,
     REMOVE_POST_FROM_FAV,
     REMOVE_COMMENT_FROM_FAV,
+    FETCH_FAV_POST,
+    FETCH_FAV_COMMENT,
 } from "./types";
 
 export const fetchPosts = () => async dispatch => {
@@ -40,15 +42,11 @@ export const fetchComments = postId => async dispatch => {
 };
 
 export const addPostToFav = postId => async dispatch => {
-    const response = await jsonPlaceholder.get(`/posts/${postId}`);
-
-    dispatch({ type: ADD_POST_TO_FAV, payload: response.data });
+    dispatch({ type: ADD_POST_TO_FAV, payload: postId });
 };
 
 export const addCommentToFav = commentId => async dispatch => {
-    const response = await jsonPlaceholder.get(`/comments/${commentId}`);
-
-    dispatch({ type: ADD_COMMENT_TO_FAV, payload: response.data });
+    dispatch({ type: ADD_COMMENT_TO_FAV, payload: commentId });
 };
 
 export const removePostFromFav = postId => dispatch => {
@@ -57,4 +55,16 @@ export const removePostFromFav = postId => dispatch => {
 
 export const removeCommentFromFav = commentId => dispatch => {
     dispatch({ type: REMOVE_COMMENT_FROM_FAV, payload: commentId });
+};
+
+export const fetchFavPost = postId => async dispatch => {
+    const response = await jsonPlaceholder.get(`/posts/${postId}`);
+
+    dispatch({ type: FETCH_FAV_POST, payload: response.data });
+};
+
+export const fetchFavComment = commentId => async dispatch => {
+    const response = await jsonPlaceholder.get(`/comments/${commentId}`);
+
+    dispatch({ type: FETCH_FAV_COMMENT, payload: response.data });
 };

@@ -1,16 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import AuthorHeader from "./AuthorHeader";
-import { removePostFromFav, removeCommentFromFav } from "../actions";
+import {
+    removePostFromFav,
+    removeCommentFromFav,
+    fetchFavPost,
+    fetchFavComment,
+} from "../actions";
 
 const Favourtites = ({
+    fetchFavPost,
+    fetchFavComment,
     favPosts,
     favComments,
+    favPostsIds,
+    favCommentsIds,
     removePostFromFav,
     removeCommentFromFav,
 }) => {
+    useEffect(
+        () => {
+            for (const postId of favPostsIds) {
+                if (favPosts.some(post => post.id === postId)) {
+                    continue;
+                }
+                fetchFavPost(postId);
+            }
+
+            for (const commentId of favCommentsIds) {
+                if (favComments.some(comment => comment.id === commentId)) {
+                    continue;
+                }
+                fetchFavComment(commentId);
+            }
+        },
+        [ favPostsIds, favCommentsIds ]
+    );
+
     const renderFavPosts = () => {
         return favPosts.map(post => {
             return (
@@ -73,12 +101,16 @@ const Favourtites = ({
 
 const mapStateToProps = state => {
     return {
-        favPosts    : state.posts.favouritePosts,
-        favComments : state.comments.favouriteComments,
+        favPostsIds    : state.posts.favouritePostsIds,
+        favCommentsIds : state.comments.favouriteCommentsIds,
+        favPosts       : state.posts.favouritePosts,
+        favComments    : state.comments.favouriteComments,
     };
 };
 
 export default connect(mapStateToProps, {
     removePostFromFav,
     removeCommentFromFav,
+    fetchFavPost,
+    fetchFavComment,
 })(Favourtites);

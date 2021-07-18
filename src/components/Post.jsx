@@ -47,7 +47,7 @@ const Post = ({
     };
 
     const togglePostFav = () => {
-        addPostToFav(id);
+        addPostToFav(parseInt(id));
     };
 
     const toggleCommentFav = commentId => {
