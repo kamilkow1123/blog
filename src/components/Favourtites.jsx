@@ -10,6 +10,7 @@ import {
     fetchFavComment,
 } from "../actions";
 import styles from "../style/favourites.module.css";
+import ScrollToTop from "../ScrollToTop";
 
 const Favourtites = ({
     fetchFavPost,
@@ -107,6 +108,7 @@ const Favourtites = ({
 
     return (
         <div>
+            <ScrollToTop />
             <Navbar />
             <div className={styles.container}>
                 <div className={styles.fav}>

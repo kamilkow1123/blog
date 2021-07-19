@@ -12,13 +12,13 @@ import {
 import AuthorHeader from "./AuthorHeader";
 import Navbar from "./Navbar";
 import styles from "../style/post.module.css";
-import cn from "classnames";
 import {
     FaRegHeart,
     FaHeart,
     FaAngleDoubleLeft,
     FaAngleDoubleRight,
 } from "react-icons/fa";
+import ScrollToTop from "../ScrollToTop";
 
 const Post = ({
     fetchPost,
@@ -93,6 +93,7 @@ const Post = ({
         <div>Loading...</div>
     ) : (
         <div>
+            <ScrollToTop />
             <Navbar />
             <div className={styles.container}>
                 <div className={styles.post}>
