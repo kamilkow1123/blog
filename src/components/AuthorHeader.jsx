@@ -7,7 +7,9 @@ const AuthorHeader = ({ userId, fetchUser, user }) => {
         fetchUser(userId);
     }, []);
 
-    return !user ? null : <p>by {user.name}</p>;
+    return !user ? null : (
+        <p style={{ display: "inline-block" }}>by {user.name}</p>
+    );
 };
 
 const mapStateToProps = (state, ownProps) => {

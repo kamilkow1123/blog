@@ -1,11 +1,39 @@
-/* .container {
+.hero {
+    height: 30vh;
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background: rgb(5, 0, 92);
+    background: linear-gradient(
+        90deg,
+        rgba(5, 0, 92, 1) 0%,
+        rgb(9, 9, 121) 29%,
+        #0096d1 100%
+    );
 }
 
-.wrapper {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 20px;
-} */
+.hero__title {
+    font-size: 5rem;
+    color: white;
+    font-family: 'Poiret One', cursive;
+    text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    .hero__title {
+        font-size: 7rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .hero__title {
+        font-size: 10rem;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .hero__title {
+        font-size: 12rem;
+    }
+}

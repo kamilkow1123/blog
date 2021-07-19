@@ -14,13 +14,23 @@ const PostsList = ({ fetchPosts, posts }) => {
         return posts.map(post => {
             return (
                 <div className={styles.postlist__post} key={post.id}>
-                    <Link
-                        className={styles.postlist__link}
-                        to={`/post/${post.id}`}
-                    >
-                        {post.title}
-                    </Link>
-                    <AuthorHeader userId={post.userId} />
+                    <div className={styles.postlist__cover} />
+                    <div className={styles.postlist__content}>
+                        <div>
+                            <div className={styles.postlist__title}>
+                                {post.title}
+                            </div>
+                            <AuthorHeader userId={post.userId} />
+                        </div>
+                        <div className={styles.postlist__wrapper}>
+                            <Link
+                                className={styles.postlist__link}
+                                to={`/post/${post.id}`}
+                            >
+                                read more
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             );
         });
@@ -28,7 +38,8 @@ const PostsList = ({ fetchPosts, posts }) => {
 
     return (
         <div className={styles.postlist}>
-            <div className={styles.wrapper}>{renderPosts()}</div>;
+            {renderPosts()}
+            {/* <div className={styles.wrapper}>{renderPosts()}</div>; */}
         </div>
     );
 };

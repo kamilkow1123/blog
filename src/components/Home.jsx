@@ -5,8 +5,11 @@ import styles from "../style/home.module.css";
 
 const Home = () => {
     return (
-        <div className={styles.wrapper}>
+        <div>
             <Navbar />
+            <div className={styles.hero}>
+                <h1 className={styles.hero__title}>YOUR BLOG</h1>
+            </div>
             <PostsList />
         </div>
     );
