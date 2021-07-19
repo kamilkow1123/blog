@@ -9,6 +9,7 @@ import {
     fetchFavPost,
     fetchFavComment,
 } from "../actions";
+import styles from "../style/favourites.module.css";
 
 const Favourtites = ({
     fetchFavPost,
@@ -42,18 +43,25 @@ const Favourtites = ({
     const renderFavPosts = () => {
         return favPosts.map(post => {
             return (
-                <div key={post.id}>
-                    <Link to={`/post/${post.id}`}>
-                        <h2>{post.title}</h2>
-                        {/* <p>{post.body}</p> */}
+                <div key={post.id} className={styles.post}>
+                    <h2 className={styles.post__title}>{post.title}</h2>
+                    <div className={styles.post__author}>
                         <AuthorHeader userId={post.userId} />
-                    </Link>
-                    <button
-                        type="button"
-                        onClick={() => handleRemovingPost(post.id)}
-                    >
-                        Remove from favourites
-                    </button>
+                    </div>
+                    <div className={styles.post__buttons}>
+                        <div
+                            onClick={() => handleRemovingPost(post.id)}
+                            className={styles.post__fav}
+                        >
+                            Remove from favourites
+                        </div>
+                        <Link
+                            to={`/post/${post.id}`}
+                            className={styles.post__link}
+                        >
+                            View the post
+                        </Link>
+                    </div>
                 </div>
             );
         });
@@ -62,18 +70,28 @@ const Favourtites = ({
     const renderFavComments = () => {
         return favComments.map(comment => {
             return (
-                <div key={comment.id}>
-                    <Link to={`/post/${comment.postId}`}>
-                        <h3>{comment.name}</h3>
-                        <h4>by {comment.email}</h4>
+                <div key={comment.id} className={styles.comment}>
+                    <h3 className={styles.comment__title}>{comment.name}</h3>
+                    <h4 className={styles.comment__author}>
+                        by {comment.email}
+                    </h4>
+                    <div className={styles.comment__body}>
                         <p>{comment.body}</p>
-                    </Link>
-                    <button
-                        type="button"
-                        onClick={() => handleRemovingComment(comment.id)}
-                    >
-                        Remove from favourites
-                    </button>
+                    </div>
+                    <div className={styles.comment__buttons}>
+                        <div
+                            onClick={() => handleRemovingComment(comment.id)}
+                            className={styles.comment__fav}
+                        >
+                            Remove from favourites
+                        </div>
+                        <Link
+                            to={`/post/${comment.postId}`}
+                            className={styles.comment__link}
+                        >
+                            View the post
+                        </Link>
+                    </div>
                 </div>
             );
         });
@@ -90,11 +108,17 @@ const Favourtites = ({
     return (
         <div>
             <Navbar />
-            <h1>Favourites</h1>
-            <h2>Posts</h2>
-            {renderFavPosts()}
-            <h2>Comments</h2>
-            {renderFavComments()}
+            <div className={styles.container}>
+                <div className={styles.fav}>
+                    <h1 className={styles.fav__title}>Favourites</h1>
+                    <h2 className={styles.fav__header}>Posts</h2>
+                    <div className={styles.fav__wrapper}>
+                        {renderFavPosts()}
+                    </div>
+                    <h2 className={styles.fav__header}>Comments</h2>
+                    {renderFavComments()}
+                </div>
+            </div>
         </div>
     );
 };
