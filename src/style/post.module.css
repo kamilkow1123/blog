@@ -2,18 +2,140 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background: lightgrey;
 }
 
 .post {
     width: 100%;
     height: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 20px;
     /* background: white; */
 }
 
+/* .post__cover {
+    width: calc(100% + 40px);
+    background: #ff365f;
+    background: linear-gradient(
+        270deg,
+        rgba(144, 19, 44, 1) 0%,
+        rgba(255, 54, 95, 1) 100%
+    );
+    margin-left: -20px;
+    margin-right: -20px;
+} */
+
 .post__title {
     text-transform: uppercase;
     padding: 2rem 0;
+    font-family: 'Poiret One', cursive;
+    font-size: 2.5rem;
+    /* color: #fff; */
+}
+
+.post__author {
+    width: max-content;
+    position: relative;
+}
+
+.post__author::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: #ff365f;
+    bottom: -15px;
+    left: 0;
+}
+
+.post__wrapper {
+    margin: 1rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post__fav {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.post__body {
+    line-height: 1.7;
+    text-align: justify;
+    margin: 0.5rem 0;
+}
+
+.post__links {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post__link {
+    color: #ff365f;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.post__header {
+    text-transform: uppercase;
+    padding: 1.5rem 0;
+    font-family: 'Poiret One', cursive;
+    font-size: 2rem;
+    letter-spacing: 3px;
+}
+
+.comment {
+    margin: 1rem 0;
+}
+
+.comment__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.comment__title {
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.comment__fav {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 0.8rem;
+    margin-top: 0.4rem;
+}
+
+.comment__author {
+    width: max-content;
+    position: relative;
+}
+
+.comment__author::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 50%;
+    background-color: #ff365f;
+    bottom: -15px;
+    left: 0;
+}
+
+.comment__body {
+    margin: 2rem 0 4rem 0;
+    line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+    .comment {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .comment {
+        width: 60%;
+    }
 }

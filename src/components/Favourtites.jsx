@@ -42,7 +42,7 @@ const Favourtites = ({
     const renderFavPosts = () => {
         return favPosts.map(post => {
             return (
-                <div key={post.id} style={{ border: "1px solid blue" }}>
+                <div key={post.id}>
                     <Link to={`/post/${post.id}`}>
                         <h2>{post.title}</h2>
                         {/* <p>{post.body}</p> */}
@@ -62,7 +62,7 @@ const Favourtites = ({
     const renderFavComments = () => {
         return favComments.map(comment => {
             return (
-                <div key={comment.id} style={{ border: "1px solid red" }}>
+                <div key={comment.id}>
                     <Link to={`/post/${comment.postId}`}>
                         <h3>{comment.name}</h3>
                         <h4>by {comment.email}</h4>

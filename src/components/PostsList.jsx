@@ -20,7 +20,9 @@ const PostsList = ({ fetchPosts, posts }) => {
                             <div className={styles.postlist__title}>
                                 {post.title}
                             </div>
-                            <AuthorHeader userId={post.userId} />
+                            <div className={styles.postlist__author}>
+                                <AuthorHeader userId={post.userId} />
+                            </div>
                         </div>
                         <div className={styles.postlist__wrapper}>
                             <Link

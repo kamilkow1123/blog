@@ -12,6 +12,13 @@ import {
 import AuthorHeader from "./AuthorHeader";
 import Navbar from "./Navbar";
 import styles from "../style/post.module.css";
+import cn from "classnames";
+import {
+    FaRegHeart,
+    FaHeart,
+    FaAngleDoubleLeft,
+    FaAngleDoubleRight,
+} from "react-icons/fa";
 
 const Post = ({
     fetchPost,
@@ -38,20 +45,28 @@ const Post = ({
     const renderComments = () => {
         return comments.map(comment => {
             return (
-                <div key={comment.id} style={{ border: "1px solid red" }}>
-                    <h3>{comment.name}</h3>
-                    <h4>by {comment.email}</h4>
-                    <button
-                        type="button"
-                        onClick={() => toggleCommentFav(comment.id)}
-                    >
-                        {favCommentsIds.includes(comment.id) ? (
-                            "Remove from favourites"
-                        ) : (
-                            "Add to favourites"
-                        )}
-                    </button>
-                    <p>{comment.body}</p>
+                <div key={comment.id} className={styles.comment}>
+                    <div className={styles.comment__wrapper}>
+                        <h3 className={styles.comment__title}>
+                            {comment.name}
+                        </h3>
+                        <div
+                            className={styles.comment__fav}
+                            onClick={() => toggleCommentFav(comment.id)}
+                        >
+                            {favCommentsIds.includes(comment.id) ? (
+                                <FaHeart style={{ color: "#ff365f" }} />
+                            ) : (
+                                <FaRegHeart />
+                            )}
+                        </div>
+                    </div>
+                    <h4 className={styles.comment__author}>
+                        by {comment.email}
+                    </h4>
+                    <div className={styles.comment__body}>
+                        <p>{comment.body}</p>
+                    </div>
                 </div>
             );
         });
@@ -81,36 +96,103 @@ const Post = ({
             <Navbar />
             <div className={styles.container}>
                 <div className={styles.post}>
-                    <h1 className={styles.post__title}>{post.title}</h1>
-                    <AuthorHeader userId={post.userId} />
-                    <button type="button" onClick={togglePostFav}>
-                        {favPostsIds.includes(parseInt(id)) ? (
-                            "Remove from favourites"
-                        ) : (
-                            "Add to favourite"
-                        )}
-                    </button>
-                    <p>
-                        {post.body}
-                        {post.body}
-                        {post.body}
-                        {post.body}
-                        {post.body}
-                        {post.body}
-                        {post.body}
-                        {post.body}
-                        {post.body}
-                        {post.body}
-                    </p>
-                    {parseInt(id) > 1 && (
-                        <Link to={`/post/${parseInt(id) - 1}`}>
+                    <div className={styles.post__cover}>
+                        <h1 className={styles.post__title}>{post.title}</h1>
+                        <div className={styles.post__author}>
+                            <AuthorHeader userId={post.userId} />
+                        </div>
+                    </div>
+                    <div className={styles.post__wrapper}>
+                        <div
+                            className={styles.post__fav}
+                            onClick={togglePostFav}
+                        >
+                            {favPostsIds.includes(parseInt(id)) ? (
+                                <FaHeart style={{ color: "#ff365f" }} />
+                            ) : (
+                                <FaRegHeart />
+                            )}
+                        </div>
+                    </div>
+                    <div className={styles.post__body}>
+                        <p>
+                            {post.body}
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Dolorem recusandae sed hic dolorum, numquam
+                            eveniet, inventore neque earum sit dignissimos non
+                            debitis minus. Eligendi recusandae incidunt
+                            reprehenderit temporibus, architecto dolore? Nulla
+                            est ex aliquid, recusandae soluta mollitia sint
+                            distinctio amet eligendi maxime? Tempore culpa
+                            numquam quos non vitae nulla, praesentium molestiae
+                            quam ipsum facilis commodi. Facilis nobis
+                            accusantium alias minima. Nulla in voluptatibus
+                            voluptatum dicta perferendis corrupti vitae! Odit,
+                            ex facere nostrum explicabo corrupti expedita, ipsa
+                            reiciendis assumenda deserunt dolor corporis aperiam
+                            omnis, maxime quia quae commodi modi adipisci porro.
+                            Doloribus libero, maiores molestiae eum nemo amet
+                            obcaecati facere voluptatum nobis eaque mollitia
+                            consectetur quos quam repudiandae commodi at
+                            pariatur praesentium voluptatibus? Accusamus
+                            laudantium illum tempora ullam reprehenderit. Est,
+                            nemo? Labore, iure architecto ipsum libero,
+                            repudiandae repellendus, voluptatem totam aspernatur
+                            natus dolorum quaerat ut reiciendis consequuntur
+                            culpa. Ut dolore harum error ipsam fugit omnis
+                            corrupti repellat reprehenderit, assumenda autem
+                            necessitatibus! Aliquid, ex optio? Quam deleniti,
+                            nobis maiores ad assumenda eveniet ex magnam unde
+                            voluptatibus obcaecati, beatae odio asperiores. Quis
+                            velit cum quod suscipit explicabo nisi autem dolore
+                            hic, ipsam incidunt. Dignissimos, voluptatum
+                            quibusdam dolorum id nobis aperiam cumque amet,
+                            alias officiis harum suscipit nulla doloremque
+                            libero optio consequatur ipsam nam eos modi eveniet
+                            officia quo. Itaque recusandae fugit nemo deserunt!
+                            Veritatis quasi doloremque illo blanditiis! Fugiat
+                            ex perferendis sit veniam itaque ipsa distinctio
+                            laudantium eaque neque commodi voluptatibus aliquam,
+                            incidunt dolorem fuga blanditiis adipisci molestias
+                            repellat sunt, aliquid modi aspernatur? Nisi ullam
+                            nam sint architecto laudantium cumque cupiditate
+                            atque totam recusandae facere! Doloribus,
+                            reprehenderit sapiente animi nisi alias excepturi,
+                            voluptate explicabo, maiores debitis odit ex ipsam
+                            aliquid obcaecati pariatur quas! Reiciendis ut quis
+                            in facilis quibusdam dolores cupiditate blanditiis,
+                            quasi dolorum error doloremque aperiam laboriosam
+                            adipisci. Voluptatibus fuga libero atque reiciendis
+                            consequatur nemo, dolore qui magni nam.
+                        </p>
+                    </div>
+                    <div className={styles.post__links}>
+                        <Link
+                            to={`/post/${parseInt(id) - 1}`}
+                            style={{
+                                visibility : `${parseInt(id) > 1
+                                    ? "visible"
+                                    : "hidden"}`,
+                            }}
+                            className={styles.post__link}
+                        >
+                            <FaAngleDoubleLeft />
                             Previous Post
                         </Link>
-                    )}
-                    {parseInt(id) < 100 && (
-                        <Link to={`/post/${parseInt(id) + 1}`}>Next Post</Link>
-                    )}
-                    <h2>Comments</h2>
+                        <Link
+                            to={`/post/${parseInt(id) + 1}`}
+                            style={{
+                                visibility : `${parseInt(id) < 100
+                                    ? "visible"
+                                    : "hidden"}`,
+                            }}
+                            className={styles.post__link}
+                        >
+                            Next Post
+                            <FaAngleDoubleRight />
+                        </Link>
+                    </div>
+                    <h2 className={styles.post__header}>Comments</h2>
                     {renderComments()}
                 </div>
             </div>
