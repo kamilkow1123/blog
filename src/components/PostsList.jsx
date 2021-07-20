@@ -14,7 +14,11 @@ const PostsList = ({ fetchPosts, posts }) => {
         return posts.map(post => {
             return (
                 <div className={styles.postlist__post} key={post.id}>
-                    <div className={styles.postlist__cover} />
+                    <div className={styles.postlist__cover}>
+                        <img
+                            src={`https://picsum.photos/750/300?random=${post.id}`}
+                        />
+                    </div>
                     <div className={styles.postlist__content}>
                         <div>
                             <div className={styles.postlist__title}>
