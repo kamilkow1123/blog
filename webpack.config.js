@@ -6,7 +6,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-    mode      : "development",
+    mode      : "production",
     entry     : "./src/index.js",
     output    : {
         path     : path.resolve(__dirname, "build"),
@@ -15,7 +15,7 @@ module.exports = {
     target    : "node",
     devServer : {
         port        : "9500",
-        contentBase : [ "./build" ],
+        contentBase : "./build",
         open        : true,
     },
     resolve   : {
