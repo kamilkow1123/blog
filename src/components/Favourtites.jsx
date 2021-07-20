@@ -11,6 +11,7 @@ import {
 } from "../actions";
 import styles from "../style/favourites.module.css";
 import ScrollToTop from "../ScrollToTop";
+import { FaTrash } from "react-icons/fa";
 
 const Favourtites = ({
     fetchFavPost,
@@ -52,18 +53,18 @@ const Favourtites = ({
                         </div>
                     </div>
                     <div className={styles.post__buttons}>
-                        <div
-                            onClick={() => handleRemovingPost(post.id)}
-                            className={styles.post__fav}
-                        >
-                            Remove from favourites
-                        </div>
                         <Link
                             to={`/post/${post.id}`}
                             className={styles.post__link}
                         >
                             View the post
                         </Link>
+                        <div
+                            onClick={() => handleRemovingPost(post.id)}
+                            className={styles.post__fav}
+                        >
+                            <FaTrash />
+                        </div>
                     </div>
                 </div>
             );
@@ -82,18 +83,18 @@ const Favourtites = ({
                         <p>{comment.body}</p>
                     </div>
                     <div className={styles.comment__buttons}>
-                        <div
-                            onClick={() => handleRemovingComment(comment.id)}
-                            className={styles.comment__fav}
-                        >
-                            Remove from favourites
-                        </div>
                         <Link
                             to={`/post/${comment.postId}`}
                             className={styles.comment__link}
                         >
                             View the post
                         </Link>
+                        <div
+                            onClick={() => handleRemovingComment(comment.id)}
+                            className={styles.comment__fav}
+                        >
+                            <FaTrash />
+                        </div>
                     </div>
                 </div>
             );

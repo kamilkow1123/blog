@@ -6,16 +6,16 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-    mode      : "production",
+    mode      : "development",
     entry     : "./src/index.js",
     output    : {
-        path     : path.resolve(__dirname, "build"),
+        path     : path.resolve(__dirname, "public"),
         filename : "main.js",
     },
     target    : "node",
     devServer : {
         port        : "9500",
-        contentBase : "./build",
+        contentBase : "./public",
         open        : true,
     },
     resolve   : {
