@@ -1,3 +1,10 @@
+:root {
+    --clr-light: #fff;
+    --clr-dark: #000;
+    --clr-accent: #ff365f;
+    --font-secondary: 'Poiret One', cursive;
+}
+
 .container {
     width: 100%;
     display: flex;
@@ -14,7 +21,7 @@
 .fav__title {
     text-transform: uppercase;
     padding: 1.5rem 0;
-    font-family: 'Poiret One', cursive;
+    font-family: var(--font-secondary);
     font-size: 2.5rem;
     letter-spacing: 2px;
 }
@@ -22,7 +29,7 @@
 .fav__header {
     text-transform: uppercase;
     padding: 1.5rem 0;
-    font-family: 'Poiret One', cursive;
+    font-family: var(--font-secondary);
     font-size: 2rem;
     letter-spacing: 3px;
 }
@@ -43,7 +50,7 @@
 .post__title {
     line-height: 1.5;
     margin-bottom: 0.5rem;
-    color: #000;
+    color: var(--clr-dark);
     text-decoration: none;
 }
 
@@ -57,7 +64,7 @@
     position: absolute;
     height: 2px;
     width: 50%;
-    background-color: #ff365f;
+    background-color: var(--clr-accent);
     bottom: -15px;
     left: 0;
 }
@@ -76,26 +83,26 @@
 .comment__fav,
 .post__fav {
     cursor: pointer;
-    background-color: #ff365f;
-    color: #fff;
+    background-color: var(--clr-accent);
+    color: var(--clr-light);
     padding: 1rem;
     font-size: 1rem;
     margin: 0.5rem 1rem 0.5rem 0;
     width: max-content;
-    border: 2px solid #ff365f;
+    border: 2px solid var(--clr-accent);
     transition: all 0.4s ease-in-out;
 }
 
 .comment__link,
 .post__link {
     cursor: pointer;
-    background-color: #ff365f;
+    background-color: var(--clr-accent);
     text-decoration: none;
-    color: white;
+    color: var(--clr-light);
     padding: 1rem;
     margin: 0.5rem 0;
     width: max-content;
-    border: 2px solid #ff365f;
+    border: 2px solid var(--clr-accent);
     transition: all 0.4s ease-in-out;
 }
 
@@ -103,8 +110,8 @@
 .comment__link:hover,
 .post__fav:hover,
 .post__link:hover {
-    background: #fff;
-    color: #ff365f;
+    background: var(--clr-light);
+    color: var(--clr-accent);
 }
 
 .post {

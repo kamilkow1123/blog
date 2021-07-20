@@ -1,7 +1,15 @@
+:root {
+    --clr-light: #fff;
+    --clr-dark: #000;
+    --clr-accent: #ff365f;
+    --font-secondary: 'Poiret One', cursive;
+}
+
 .container {
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: var(--clr-light);
 }
 
 .post {
@@ -9,33 +17,21 @@
     height: 100%;
     max-width: 1000px;
     margin: 0 20px;
-    /* background: white; */
 }
-
-/* .post__cover {
-    width: calc(100% + 40px);
-    background: #ff365f;
-    background: linear-gradient(
-        270deg,
-        rgba(144, 19, 44, 1) 0%,
-        rgba(255, 54, 95, 1) 100%
-    );
-    margin-left: -20px;
-    margin-right: -20px;
-} */
 
 .post__title {
     text-transform: uppercase;
     padding: 2rem 0;
-    font-family: 'Poiret One', cursive;
+    font-family: var(--font-secondary);
     font-size: 2.5rem;
     letter-spacing: 2px;
-    /* color: #fff; */
+    color: var(--clr-dark);
 }
 
 .post__author {
     width: max-content;
     position: relative;
+    color: var(--clr-dark);
 }
 
 .post__author::after {
@@ -43,7 +39,7 @@
     position: absolute;
     height: 4px;
     width: 100%;
-    background-color: #ff365f;
+    background-color: var(--clr-accent);
     bottom: -15px;
     left: 0;
 }
@@ -63,6 +59,7 @@
     line-height: 1.7;
     text-align: justify;
     margin: 0.5rem 0;
+    color: var(--clr-dark);
 }
 
 .post__links {
@@ -72,7 +69,7 @@
 }
 
 .post__link {
-    color: #ff365f;
+    color: var(--clr-accent);
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -82,9 +79,10 @@
 .post__header {
     text-transform: uppercase;
     padding: 1.5rem 0;
-    font-family: 'Poiret One', cursive;
+    font-family: var(--font-secondary);
     font-size: 2rem;
     letter-spacing: 3px;
+    color: var(--clr-dark);
 }
 
 .comment {
@@ -100,6 +98,7 @@
 .comment__title {
     line-height: 1.5;
     margin-bottom: 0.5rem;
+    color: var(--clr-dark);
 }
 
 .comment__fav {
@@ -112,6 +111,7 @@
 .comment__author {
     width: max-content;
     position: relative;
+    color: var(--clr-dark);
 }
 
 .comment__author::after {
@@ -119,7 +119,7 @@
     position: absolute;
     height: 2px;
     width: 50%;
-    background-color: #ff365f;
+    background-color: var(--clr-accent);
     bottom: -15px;
     left: 0;
 }
@@ -127,6 +127,7 @@
 .comment__body {
     margin: 2rem 0 4rem 0;
     line-height: 1.5;
+    color: var(--clr-dark);
 }
 
 @media screen and (min-width: 768px) {

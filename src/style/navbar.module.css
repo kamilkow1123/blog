@@ -1,9 +1,16 @@
+:root {
+    --clr-light: #fff;
+    --clr-dark: #000;
+    --clr-accent: #ff365f;
+    --font-secondary: 'Poiret One', cursive;
+}
+
 .nav {
     height: 80px;
     width: 100%;
     display: flex;
     justify-content: center;
-    background: white;
+    background: var(--clr-light);
 }
 
 .nav__wrapper {
@@ -18,6 +25,6 @@
 
 .nav__link {
     padding: 10px 20px;
-    color: #000;
+    color: var(--clr-dark);
     text-decoration: none;
 }

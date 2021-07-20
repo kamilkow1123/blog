@@ -1,15 +1,22 @@
+:root {
+    --clr-light: #fff;
+    --clr-dark: #000;
+    --clr-accent: #ff365f;
+    --font-secondary: 'Poiret One', cursive;
+}
+
 .hero {
     height: 50vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(5, 0, 92);
+    background: rgb(9, 9, 121);
     background: linear-gradient(
         90deg,
-        rgba(5, 0, 92, 1) 0%,
+        rgb(5, 0, 92) 0%,
         rgb(9, 9, 121) 29%,
-        #0096d1 100%
+        rgb(0, 150, 209) 100%
     );
     clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
     margin-bottom: -15vh;
@@ -17,8 +24,8 @@
 
 .hero__title {
     font-size: 4rem;
-    color: white;
-    font-family: 'Poiret One', cursive;
+    color: var(--clr-light);
+    font-family: var(--font-secondary);
     text-align: center;
 }
 
