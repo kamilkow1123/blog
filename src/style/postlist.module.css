@@ -1,9 +1,9 @@
-:root {
+/* :root {
     --clr-light: #fff;
     --clr-dark: #000;
     --clr-accent: #ff365f;
-    --font-secondary: 'Poiret One', cursive;
-}
+    --font-secondary: 'Open Sans Condensed', sans-serif;
+} */
 
 .postlist {
     display: flex;
@@ -41,15 +41,14 @@
 
 .postlist__title {
     width: 100%;
-    color: var(--clr-light);
+    color: var(--clr-dark);
     text-decoration: none;
     padding: 0.5rem 0;
     font-size: 1.3rem;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
     font-family: var(--font-secondary);
-    font-weight: bold;
-    letter-spacing: 2px;
+    font-weight: 700;
 }
 
 .postlist__author {

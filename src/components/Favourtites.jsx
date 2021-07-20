@@ -45,9 +45,11 @@ const Favourtites = ({
         return favPosts.map(post => {
             return (
                 <div key={post.id} className={styles.post}>
-                    <h2 className={styles.post__title}>{post.title}</h2>
-                    <div className={styles.post__author}>
-                        <AuthorHeader userId={post.userId} />
+                    <div>
+                        <h2 className={styles.post__title}>{post.title}</h2>
+                        <div className={styles.post__author}>
+                            <AuthorHeader userId={post.userId} />
+                        </div>
                     </div>
                     <div className={styles.post__buttons}>
                         <div
