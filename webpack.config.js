@@ -1,16 +1,21 @@
 const path = require("path");
+// const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const htmlWebpackPlugin = new HtmlWebpackPlugin({
+//     template : path.join(__dirname, "public/index.html"),
+//     filename : "./index.html",
+// });
 
 module.exports = {
     mode      : "development",
-    entry     : "./index.js",
+    entry     : "./src/index.js",
     output    : {
-        path     : path.resolve(__dirname, "public"),
+        path     : path.resolve(__dirname, "build"),
         filename : "main.js",
     },
     target    : "node",
     devServer : {
         port        : "9500",
-        contentBase : [ "./public" ],
+        contentBase : [ "./build" ],
         open        : true,
     },
     resolve   : {
@@ -43,4 +48,5 @@ module.exports = {
             },
         ],
     },
+    // plugins   : [ htmlWebpackPlugin ],
 };
