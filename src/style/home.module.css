@@ -11,17 +11,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgb(9, 9, 121);
-    /* background: linear-gradient(
-        90deg,
-        rgb(5, 0, 92) 0%,
-        rgb(9, 9, 121) 29%,
-        rgb(0, 150, 209) 100%
-    ); */
-    background-image: url(https://picsum.photos/id/716/2000/600);
+    background: #ff365f;
+    /* background: rgb(9, 9, 121); */
+    /* background-image: url(https://picsum.photos/id/716/2000/600); */
     background-size: cover;
     background-position: center;
-    /* background-blend-mode: darken; */
     clip-path: polygon(0 0, 100% 0, 100% 82%, 0% 100%);
     margin-bottom: -15vh;
 }
