@@ -1,6 +1,6 @@
 # Blog
 
-Website: [kamilkow1123.github.io/blog/](kamilkow1123.github.io/blog/)
+Website: https://kamilkow1123.github.io/blog/
 
 ---
 ## Description
