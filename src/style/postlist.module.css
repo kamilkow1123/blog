@@ -16,6 +16,7 @@
     justify-content: stretch;
     box-shadow: 0px 0px 45px -9px rgba(0, 0, 0, 0.75);
     z-index: 10;
+    border-radius: 5px;
 }
 
 .postlist__cover {
@@ -62,6 +63,7 @@
     text-decoration: none;
     border: 2px solid var(--clr-accent);
     transition: all 0.4s ease-in-out;
+    border-radius: 5px;
 }
 
 .postlist__link:hover {
