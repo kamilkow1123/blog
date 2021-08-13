@@ -10,6 +10,7 @@ Simple react/Redux blog app that uses JSONPlaceholder API [https://jsonplacehold
 ### Technologies
 - React
 - Redux
+- Webpack
 - CSS Modules
 
 ---
